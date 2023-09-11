@@ -1,4 +1,4 @@
-name: chesapeake_mhw
+name: chesapeake_mhw_2021dask
 channels:
   - conda-forge
 dependencies:
@@ -10,9 +10,11 @@ dependencies:
   - xarray
   - numpy
   - scipy
-  - dask
+  - dask=2021.10.0
   - netcdf4
   - zarr
+  - pydap
+  - lxml
   - requests
   - aiohttp
   - pandas
