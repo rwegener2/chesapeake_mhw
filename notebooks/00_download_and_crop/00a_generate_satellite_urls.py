@@ -13,7 +13,7 @@ import pandas as pd
 # Define the dates of the images based on the start and end dates of the analysis
 REPO_ROOT = '/Users/rwegener/repos/chesapeake_mhw/'
 START_DATE, END_DATE = '20020901', '20230831'
-DATASET = 'mur'
+DATASET = 'mur'  # should be either 'mur' or 'geopolar'
 if DATASET not in ['geopolar', 'mur']:
     raise KeyError('Valid options for DATASET are `geopolar` or `mur`')
 
