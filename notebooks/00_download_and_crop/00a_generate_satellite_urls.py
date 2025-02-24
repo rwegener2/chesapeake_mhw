@@ -1,21 +1,27 @@
 #########
 # This script ...
+# start_date, end_date, and scratch_dir must all match 00b_download_crop
 # Runtime on my local machine ~seconds
 # This script generates the file geopolar_filepaths_{start_date}_{end_date}.txt
 # Run TWICE: `python 00a_generate_satellite_urls.py` from the environment
 # First time set DATASET = 'geopolar', second time DATASET = 'mur'
 #########
 import os
+from pathlib import Path
 
 import pandas as pd
 
 # Define global variables. To be set by user (or if time made into CLI args)
 # Define the dates of the images based on the start and end dates of the analysis
-REPO_ROOT = '/Users/rwegener/repos/chesapeake_mhw/'
-START_DATE, END_DATE = '20020901', '20230831'
-DATASET = 'mur'  # should be either 'mur' or 'geopolar'
+REPO_ROOT = Path('/Users/rwegener/repos/chesapeake_mhw/')
+START_DATE, END_DATE = '20030101', '20231231'
+DATASET = 'geopolar'  # should be either 'mur' or 'geopolar'
 if DATASET not in ['geopolar', 'mur']:
     raise KeyError('Valid options for DATASET are `geopolar` or `mur`')
+
+# scratch directory to save text file with satellite urls
+SCRATCH_DIR = REPO_ROOT / 'data/02_interim/scratch'
+os.makedirs(SCRATCH_DIR, exist_ok=True)
 
 # Define a function which creates a Geopolar filepath, given a date
 def make_geopolar_url(time):
@@ -94,7 +100,7 @@ all_filepaths = [make_url(d) for d in dates]
 
 # Write the names of the filepaths to a text file, each on a new line
 output_filename = f'filepaths_{DATASET}_{START_DATE}_{END_DATE}.txt'
-output_path = os.path.join(REPO_ROOT, 'data/interim', output_filename)
+output_path = SCRATCH_DIR / output_filename
 with open(output_path, 'w') as f:
     f.writelines(filepath + '\n' for filepath in all_filepaths)
 
