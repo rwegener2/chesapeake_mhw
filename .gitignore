@@ -92,4 +92,4 @@ target/
 
 # Data files
 data/*
-*/dask-worker-space/
+*/dask-worker-space/*
