@@ -1,11 +1,11 @@
 chesapeake_mhw
 ==============================
 
-This repository contains code to support the publication Spatial Variability of Marine Heatwaves in the Chesapeake Bay. Preprint available [here](https://doi.org/10.31223/X5299J) (DOI: 10.31223/X5299J). It has been submitted for review to the journal Estuaries and Coasts.
+This repository contains code to support the publication Spatial Variability of Marine Heatwaves in the Chesapeake Bay. A preprint is available [here](https://doi.org/10.31223/X5299J) (DOI: 10.31223/X5299J). It has been submitted for review to the journal Estuaries and Coasts.
 
 ### Data Availability
 
-The input and output data for this repository is available in the SEANOE Data repository (DOI [10.17882/105013](https://doi.org/10.17882/105013). This repository includes the the starting satellite SST and Chesapeake Bay Program datasets cropped and subset to the Chesapeake Bay region and the 2003-2023 time period for this study. It also includes the outputs of the data processing for both the validation and marine heatwave analyses of this study.
+The input and output data for this repository is available in the SEANOE Data repository (DOI [10.17882/105013](https://doi.org/10.17882/105013)). This repository includes the starting satellite SST and Chesapeake Bay Program datasets subset to the Chesapeake Bay region and the 2003-2023 time period for this study. It also includes the outputs of the data processing for both the validation and marine heatwave analyses of this study.
 
 ### Environment Setup
 
@@ -13,7 +13,7 @@ With the exception of `notebooks/01_intermediate_processing/01b_MHW_calculation_
 
 Create a new conda environment from a file using:
 ```python
-conda env create -f chesapeake_mhw.yml
+conda env create -f environment.yml
 ```
 
 Unfortunately, the marineHeatWaves currently has an out of date installation method. It can be installed manually, however, by cloning the repository from the source Github page: https://github.com/ecjoliver/marineHeatWaves. The version used was the commit from May 2022 (SHA d7292bf08ade0af213fa760b0d7e4adfe5f52894).
